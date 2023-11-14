@@ -10,21 +10,63 @@ import {
     logoBox,
     footerLeft,
     footerRight,
+    body,
+    infoButton,
+    infoBox,
+    categoryButton,
+    fLeftLeft,
+    fLeftRight,
+    fRightLeft,
+    fRightRight,
 }from "./styles";
 
   const Main = () => {
     return(
-        <div>  
-            <div css = {headerBox}>header
-                <div css = {logoBox}>
-                    Logo
+        <div css = {body}>  
+            <div css = {headerBox}>
+                <div css = {logoBox}></div>
+                <div css = {infoBox}>
+                    <button css={infoButton}>Login</button>
+                    <button css={infoButton}>Account</button>
+                    <button css={infoButton}>Cart</button>
+                    <button css={infoButton}>Search</button>
                 </div>
             </div>
             <div css = {footerBox}>
-                <div css = {footerLeft}></div>
-                <div css = {footerRight}></div>
+                <div css = {footerLeft}>
+                    <div css = {fLeftLeft}>CUSTOM CENTER - 02-1234-567
+                    <br/>CS 10AM - 5PM
+                    <br/>LUCNCH 12:30PM-1:30PM
+                    <br/> HOLYDAY,SAT,SUM OFF
+                    <br/>PRODUCT RETURN- 서울시 노원구 공릉동 593-5,01848</div>
+
+                    <div css = {fLeftRight}>동해물과 백두산이 마르고닳도록
+                     <br/>하느님이 보우하사 우리나라만세
+                     <br/>무궁화 삼천리 화려강산
+                     <br/>대한사람 대한으로 길이보전하세
+                    <br/>전화문의: ABC.DEF</div>
+                </div>
+                <div css = {footerRight}>
+                <div css = {fRightLeft}>감자에 싹이나서 잎이나서 위잉위잉쇽
+                    <br/>하나빼기 일
+                    <br/>하나 빼ㄱ ㅣ일
+                    <br/> 둘빼기 삼은 마이너스일
+                    <br/>PRODUCT RETURN- 서울시 노원구 공릉동 593-5,01848</div>
+
+                    <div css = {fRightRight}>감자 감자 감자: 감자
+                     <br/>감자가 하나에 천원?
+                     <br/>좋아, 당장 사러가자 ~~ ,
+                     <br/>돼지고기김치찌개 소시지야채볶음 매콤새우크림파스타
+                    <br/>점심뭐먹지</div>
+                </div>
             </div>
-            <div css = {categoryBox}>Category</div>
+            <div css = {categoryBox}>
+                <a href="#" css = {categoryButton}>SHOP</a>
+                <a href="#" css = {categoryButton}>COLLECTION</a>
+                <a href="#" css = {categoryButton}>ABOUT</a>
+                <a href="#" css = {categoryButton}>CONTACT</a>
+                <a href="#" css = {categoryButton}>BOARD</a>
+            </div>
         </div>
     );
   };
