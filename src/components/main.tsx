@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
 
-import {useNavigate} from "react-router-dom";
-import {css} from '@emotion/react';
 import React, { useState, useEffect } from 'react';
 import {
     footerBox, 
@@ -18,20 +16,34 @@ import {
     fLeftRight,
     fRightLeft,
     fRightRight,
+    categoryButton2,
+    loginPanelStyle,
+    closeButtonStyle,
+    inputStyle,
+    loginButtonStyle,
+    formStyle,
+    formContainerStyle
 }from "./styles";
 
-  const Main = () => {
+type HeaderProps = {
+    toggleLoginPanel: () => void;
+};
+
+export const Header = ({ toggleLoginPanel }: HeaderProps) => {
     return(
-        <div css = {body}>  
-            <div css = {headerBox}>
-                <div css = {logoBox}></div>
-                <div css = {infoBox}>
-                    <button css={infoButton}>Login</button>
-                    <button css={infoButton}>Account</button>
-                    <button css={infoButton}>Cart</button>
-                    <button css={infoButton}>Search</button>
-                </div>
+        <div css={headerBox}>
+            <div css={infoBox}>
+                <button css={infoButton} onClick={toggleLoginPanel}>Login</button>
+                <button css={infoButton}>Account</button>
+                <button css={infoButton}>Cart</button>
+                <button css={infoButton}>Search</button>
             </div>
+        </div>
+    );
+};
+
+    export const Footer = () =>{
+        return(
             <div css = {footerBox}>
                 <div css = {footerLeft}>
                     <div css = {fLeftLeft}>CUSTOM CENTER - 02-1234-567
@@ -60,14 +72,60 @@ import {
                     <br/>점심뭐먹지</div>
                 </div>
             </div>
+        );
+    };
+
+    export const Category = () => {
+        return(
             <div css = {categoryBox}>
-                <a href="#" css = {categoryButton}>SHOP</a>
+                <div css = {logoBox}></div>
+                <a href="/shop" css = {categoryButton}>SHOP</a>
                 <a href="#" css = {categoryButton}>COLLECTION</a>
+                <a href="#" css = {categoryButton2}>Top</a>
+                <a href="#" css = {categoryButton2}>Bottom</a>
+                <a href="#" css = {categoryButton2}>Shirts</a>
+                <a href="#" css = {categoryButton2}>Outer</a>
                 <a href="#" css = {categoryButton}>ABOUT</a>
                 <a href="#" css = {categoryButton}>CONTACT</a>
                 <a href="#" css = {categoryButton}>BOARD</a>
             </div>
+        );
+    };
+// LoginPanel 컴포넌트
+const LoginPanel = ({ isOpen, closePanel }: { isOpen: boolean; closePanel: () => void }) => {
+    return (
+        <div css={loginPanelStyle(isOpen)}>
+            <div css={formContainerStyle}>
+                <form css={formStyle}>
+                    <input css={inputStyle} type="text" id="username" placeholder="ID" />
+                    <input css={inputStyle} type="password" id="password" placeholder="Password" />
+                    <button css={loginButtonStyle} type="submit">로그인</button>
+                </form>
+            </div>
+        <button css={closeButtonStyle} onClick={closePanel}>X</button>
+    </div>
+    );
+};
+
+// Main 컴포넌트
+const Main = () => {
+    const [isLoginPanelOpen, setLoginPanelOpen] = useState(false);
+
+    const toggleLoginPanel = () => {
+        setLoginPanelOpen(!isLoginPanelOpen);
+    };
+
+    const closeLoginPanel = () => {
+        setLoginPanelOpen(false);
+    };
+
+    return (
+        <div css={body}>
+            <Header toggleLoginPanel={toggleLoginPanel}/>
+            {isLoginPanelOpen && <LoginPanel isOpen={isLoginPanelOpen} closePanel={closeLoginPanel} />}
+            <Footer/>
+            <Category/>
         </div>
     );
-  };
+};
 export default Main;
