@@ -4,4 +4,8 @@
 ### 분류: 쇼핑몰
 ### 사용기술
 #### React + Typescript
-####
+#### 상태관리: Recoil
+#### 통신: React-query
+#### CSS: Emotion.css
+#### 백엔드: Spring
+#### 로그인: SpringSecurity + JWT Token
