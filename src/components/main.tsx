@@ -78,18 +78,28 @@ export const Header = ({ toggleLoginPanel }: HeaderProps) => {
     };
 
     export const Category = () => {
-        return(
-            <div css = {categoryBox}>
-                <Link to = "/"><div css = {logoBox}></div></Link>
-                <a href="/shop" css = {categoryButton}>SHOP</a>
-                <a href="#" css = {categoryButton}>COLLECTION</a>
-                <a href="#" css = {categoryButton2}>Top</a>
-                <a href="#" css = {categoryButton2}>Bottom</a>
-                <a href="#" css = {categoryButton2}>Shirts</a>
-                <a href="#" css = {categoryButton2}>Outer</a>
-                <a href="#" css = {categoryButton}>ABOUT</a>
-                <a href="#" css = {categoryButton}>CONTACT</a>
-                <a href="#" css = {categoryButton}>BOARD</a>
+        const [isCollectionVisible, setIsCollectionVisible] = useState(false);
+    
+        const toggleCollectionVisibility = () => {
+            setIsCollectionVisible(!isCollectionVisible);
+        };
+    
+        return (
+            <div css={categoryBox}>
+                <Link to="/"><div css={logoBox}></div></Link>
+                <a href="/shop" css={categoryButton}>SHOP</a>
+                <a href="#" css={categoryButton} onClick={toggleCollectionVisibility}>COLLECTION</a>
+                {isCollectionVisible && (
+                    <>
+                        <a href="#" css={categoryButton2}>Top</a>
+                        <a href="#" css={categoryButton2}>Bottom</a>
+                        <a href="#" css={categoryButton2}>Shirts</a>
+                        <a href="#" css={categoryButton2}>Outer</a>
+                    </>
+                )}
+                <a href="#" css={categoryButton}>ABOUT</a>
+                <a href="#" css={categoryButton}>CONTACT</a>
+                <a href="#" css={categoryButton}>BOARD</a>
             </div>
         );
     };

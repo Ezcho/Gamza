@@ -10,6 +10,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  <QueryClientProvider client={queryClient}>
   <React.StrictMode>
     <BrowserRouter>
       <RecoilRoot>
@@ -17,5 +18,6 @@ root.render(
       </RecoilRoot>
     </BrowserRouter>
   </React.StrictMode>
+</QueryClientProvider>,
 );
 reportWebVitals();
