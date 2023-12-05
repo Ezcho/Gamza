@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+import { Link } from "react-router-dom";
+
 import React, { useState, useEffect } from 'react';
 import {
     footerBox, 
@@ -78,7 +80,7 @@ export const Header = ({ toggleLoginPanel }: HeaderProps) => {
     export const Category = () => {
         return(
             <div css = {categoryBox}>
-                <div css = {logoBox}></div>
+                <Link to = "/"><div css = {logoBox}></div></Link>
                 <a href="/shop" css = {categoryButton}>SHOP</a>
                 <a href="#" css = {categoryButton}>COLLECTION</a>
                 <a href="#" css = {categoryButton2}>Top</a>

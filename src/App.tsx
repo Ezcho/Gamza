@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import Main from "./components/main";
-import Shop from "./pages/shop";
-import Product from "./pages/product";
+import Shop from "./pages/shop/shop";
+import Product from "./pages/product/product";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
